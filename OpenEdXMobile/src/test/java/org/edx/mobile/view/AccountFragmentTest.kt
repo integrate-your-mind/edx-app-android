@@ -27,6 +27,10 @@ class AccountFragmentTest : UiTest() {
 
     @Test
     fun checkButtonsVisibility() {
-        Assertions.assertThat(fragment.profile_btn.visibility).isEqualTo(View.VISIBLE)
+        if (config.isUserProfilesEnabled) {
+            Assertions.assertThat(fragment.profile_btn.visibility).isEqualTo(View.VISIBLE)
+        } else {
+            Assertions.assertThat(fragment.profile_btn.visibility).isEqualTo(View.GONE)
+        }
     }
 }

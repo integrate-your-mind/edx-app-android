@@ -8,6 +8,7 @@ import com.google.inject.Injector;
 
 import org.edx.mobile.core.IEdxEnvironment;
 import org.edx.mobile.test.http.HttpBaseTestCase;
+import org.edx.mobile.util.Config;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.robolectric.RuntimeEnvironment;
@@ -21,11 +22,13 @@ import org.robolectric.shadows.ShadowNetworkInfo;
 @Ignore
 public class UiTest extends HttpBaseTestCase {
     protected IEdxEnvironment environment;
+    protected Config config;
 
     @Override
     protected void inject(Injector injector) throws Exception {
         super.inject(injector);
         environment = injector.getInstance(IEdxEnvironment.class);
+        config = injector.getInstance(Config.class);
     }
 
     // Ensure login before tests.
